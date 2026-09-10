@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Nothing is installable until the first dependency lands. Skip rather
+      # than fail: a red badge on an empty repository teaches people to ignore
+      # the badge.
+      - id: state
+        run: |
+          if [ -f pnpm-lock.yaml ]; then echo "ready=true" >> "$GITHUB_OUTPUT"
+          else echo "ready=false" >> "$GITHUB_OUTPUT"; echo "no lockfile yet, nothing to verify"; fi
+
+      - if: steps.state.outputs.ready == 'true'
+        uses: pnpm/action-setup@v4
+
+      - if: steps.state.outputs.ready == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+
+      - if: steps.state.outputs.ready == 'true'
+        run: pnpm install --frozen-lockfile
+
+      - if: steps.state.outputs.ready == 'true'
+        run: pnpm lint
+
+      - if: steps.state.outputs.ready == 'true'
+        run: pnpm typecheck
+
+      - if: steps.state.outputs.ready == 'true'
+        run: pnpm test
+
+  # Browser tests, visual regression, the compatibility gate, and benchmark
+  # smoke tests are added alongside CP-0 (see ROADMAP.md).

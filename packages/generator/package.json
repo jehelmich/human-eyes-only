@@ -1,0 +1,11 @@
+{
+  "name": "@heo/generator",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Text to randomised SVG carrier generator (Rust/WASM).",
+  "scripts": {
+    "build": "wasm-pack build --target nodejs",
+    "test": "cargo test"
+  },
+  "license": "PolyForm-Noncommercial-1.0.0"
+}

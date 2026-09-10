@@ -1,0 +1,20 @@
+{
+  "name": "heo",
+  "version": "0.0.0",
+  "private": true,
+  "description": "HEO \u2014 adversarial rendering middleware for human-first web publishing.",
+  "license": "PolyForm-Noncommercial-1.0.0",
+  "type": "module",
+  "packageManager": "pnpm@10.15.0",
+  "engines": {
+    "node": ">=20.11"
+  },
+  "scripts": {
+    "prepare": "sh scripts/setup-hooks.sh || true",
+    "build": "pnpm --filter @heo/core --filter @heo/middleware run build",
+    "typecheck": "tsc --build --force",
+    "test": "pnpm -r run test",
+    "format": "biome format --write .",
+    "lint": "biome check ."
+  }
+}
