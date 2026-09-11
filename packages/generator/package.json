@@ -28,7 +28,8 @@
     "@human-eyes-only/core": "workspace:*"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "tag": "alpha"
   },
   "engines": {
     "node": ">=20.11"

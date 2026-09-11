@@ -31,7 +31,8 @@
     "@types/node": "22.20.2"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "tag": "alpha"
   },
   "engines": {
     "node": ">=20.11"

@@ -27,7 +27,8 @@
     "parse5": "8.0.1"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "tag": "alpha"
   },
   "engines": {
     "node": ">=20.11"
