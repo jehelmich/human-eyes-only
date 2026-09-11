@@ -8,7 +8,7 @@ export default defineConfig({
       // test` silently depends on `pnpm build` having run first, which is a
       // green suite against stale code waiting to happen — and CI does not
       // build before testing.
-      "@heo/core": fileURLToPath(new URL("../core/src/index.ts", import.meta.url)),
+      "@human-eyes-only/core": fileURLToPath(new URL("../core/src/index.ts", import.meta.url)),
     },
   },
 });

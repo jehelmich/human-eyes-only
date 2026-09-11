@@ -1,6 +1,6 @@
-# @heo/core
+# @human-eyes-only/core
 
-The framework-neutral transformation engine. `@heo/core` takes an HTML string and
+The framework-neutral transformation engine. `@human-eyes-only/core` takes an HTML string and
 returns an HTML string, and must not know about Express, Fastify, Next.js, Flask,
 or any other host framework — every integration reduces to
 `transformHtml(html, config)`.
@@ -21,8 +21,8 @@ markup" a property of the shape rather than a rule to remember.
 | --- | --- | --- |
 | `randomization` | `"request"` | Seed scope: `"request"` varies every load, `"page"` is stable per `documentKey`. Request scope is the point and makes a page uncacheable; page scope is the way back to a CDN. |
 | `seed` | none | Pins the transformation in either scope. With it, a fixed input gives byte-identical output. |
-| `documentKey` | hash of the input | Document identity for `randomization: "page"`, normally the request path. `@heo/middleware` passes the request URL. |
-| `carrier.renderer` | `null` | The generator, supplied by the host. **Required on any page carrying `<heo-protect>`.** `@heo/middleware` wires `@heo/generator` over a font for you. |
+| `documentKey` | hash of the input | Document identity for `randomization: "page"`, normally the request path. `@human-eyes-only/middleware` passes the request URL. |
+| `carrier.renderer` | `null` | The generator, supplied by the host. **Required on any page carrying `<heo-protect>`.** `@human-eyes-only/middleware` wires `@human-eyes-only/generator` over a font for you. |
 | `carrier.fontSizePx` | none | **Required for every mark that does not carry its own `size`.** The computed type size of the protected text. |
 | `carrier.variations` | `{}` | Where in the font's variation space to draw, by axis tag: `{ wght: 400 }`. Empty is the face's own default instance, which is the designer's choice rather than the page's. A tag the face has no axis for is ignored. |
 | `onUnprotectable` | `"refuse"` | What to do when HEO cannot transform a span the publisher pointed at. `"warn"` publishes it knowingly. |
@@ -81,7 +81,7 @@ Core takes the generator as configuration rather than loading it, so the package
 keeps no build step, no binary, and no second implementation of the seeded PRNG
 . `renderer` is anything satisfying `CarrierRenderer`, and it must be
 deterministic in its seed — invariant 5 is a claim about the whole response, so
-a host supplying something else owns the guarantee. `@heo/middleware` does this
+a host supplying something else owns the guarantee. `@human-eyes-only/middleware` does this
 wiring on the publisher's behalf; this is the seam that keeps a Python or edge
 adapter possible.
 

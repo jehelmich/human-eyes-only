@@ -28,8 +28,8 @@
  * what the markup does and the face it was drawn in does not matter.
  */
 
-import { transformHtml } from "@heo/core";
-import { createCarrierRenderer } from "@heo/generator/host";
+import { transformHtml } from "@human-eyes-only/core";
+import { createCarrierRenderer } from "@human-eyes-only/generator/host";
 import { buildTestFont } from "../compat/testfont.ts";
 import type { TransformUnderTest } from "./types.ts";
 

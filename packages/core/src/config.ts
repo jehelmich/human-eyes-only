@@ -46,7 +46,7 @@ export interface CarrierConfig {
   /**
    * The generator. Core never loads one itself; a host that wants carriers
    * passes the module in, exactly as it passes in the publisher's font file.
-   * `@heo/middleware` does that wiring, so a publisher installing the adapter
+  * `@human-eyes-only/middleware` does that wiring, so a publisher installing the adapter
    * supplies a font rather than a renderer.
    *
    * Required on any page carrying `<heo-protect>`: the element means a carrier

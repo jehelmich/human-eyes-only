@@ -1,5 +1,5 @@
 /**
- * The whole public surface of `@heo/core`, and the only entry point adapters
+ * The whole public surface of `@human-eyes-only/core`, and the only entry point adapters
  * use: `transformHtml(html, config) -> { html, stats }`.
  *
  * Keeping it to one function is deliberate. Adapters that hold transformation
@@ -60,7 +60,7 @@ export const VERSION = "0.1.0-alpha.1";
 const ENCODER = new TextEncoder();
 
 /**
- * UTF-8 byte length without `Buffer`. `@heo/core` must run unchanged on Node,
+ * UTF-8 byte length without `Buffer`. `@human-eyes-only/core` must run unchanged on Node,
  * Deno, Bun and edge runtimes; a Node global here would be the first crack in
  * that.
  */
@@ -282,9 +282,9 @@ export function transformHtml(html: string, config: HeoConfig = {}): TransformRe
     nonce === null
       ? null
       : {
-          nonce,
-          headerPolicy: csp.headerPolicy === null ? null : withStyleNonce(csp.headerPolicy, nonce),
-        };
+        nonce,
+        headerPolicy: csp.headerPolicy === null ? null : withStyleNonce(csp.headerPolicy, nonce),
+      };
 
   const output = serializeDocument(document);
 

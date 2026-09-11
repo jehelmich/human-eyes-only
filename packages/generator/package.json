@@ -1,5 +1,5 @@
 {
-  "name": "@heo/generator",
+  "name": "@human-eyes-only/generator",
   "version": "0.1.0-alpha.1",
   "description": "Text to randomised SVG carrier generator (Rust/WASM).",
   "scripts": {
@@ -25,7 +25,7 @@
     "README.md"
   ],
   "devDependencies": {
-    "@heo/core": "workspace:*"
+    "@human-eyes-only/core": "workspace:*"
   },
   "publishConfig": {
     "access": "public"

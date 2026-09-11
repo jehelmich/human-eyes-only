@@ -1,5 +1,5 @@
 {
-  "name": "@heo/example-node-basic",
+  "name": "@human-eyes-only/example-node-basic",
   "version": "0.0.0",
   "private": true,
   "description": "Minimal Node server demonstrating HEO middleware.",
@@ -8,8 +8,8 @@
     "start": "node --experimental-strip-types src/server.ts"
   },
   "dependencies": {
-    "@heo/generator": "workspace:*",
-    "@heo/middleware": "workspace:*"
+    "@human-eyes-only/generator": "workspace:*",
+    "@human-eyes-only/middleware": "workspace:*"
   },
   "devDependencies": {
     "@expo-google-fonts/public-sans": "0.4.2"

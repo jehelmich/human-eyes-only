@@ -20,7 +20,7 @@ optical/      M10's OCR half: what an engine reads at sub-perceptual contrast
 
 [`optical/`](optical/) is neither a gate nor a score. It is a standalone Python
 suite answering one open measurement, kept out of the pnpm workspace because it
-has no runtime relationship to `@heo/core`.
+has no runtime relationship to `@human-eyes-only/core`.
 
 ```bash
 pnpm compat                       # the gate, identity transform, every tier

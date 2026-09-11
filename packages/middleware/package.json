@@ -1,5 +1,5 @@
 {
-  "name": "@heo/middleware",
+  "name": "@human-eyes-only/middleware",
   "version": "0.1.0-alpha.1",
   "description": "Generic Node HTTP middleware adapter for HEO.",
   "license": "PolyForm-Noncommercial-1.0.0",
@@ -24,8 +24,8 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@heo/core": "workspace:^",
-    "@heo/generator": "workspace:^"
+    "@human-eyes-only/core": "workspace:^",
+    "@human-eyes-only/generator": "workspace:^"
   },
   "devDependencies": {
     "@types/node": "22.20.2"

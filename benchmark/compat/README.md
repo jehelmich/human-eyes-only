@@ -77,7 +77,7 @@ pnpm compat -- --filter table
 ```
 
 `--browser` needs Chromium:
-`pnpm --filter @heo/benchmark exec playwright install chromium`.
+`pnpm --filter @human-eyes-only/benchmark exec playwright install chromium`.
 
 Exit status is the gate. The identity transform must score 100% — anything less is
 a bug in the harness, found while it is still free. The headline output is the

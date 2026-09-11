@@ -11,10 +11,10 @@
   },
   "scripts": {
     "prepare": "sh scripts/setup-hooks.sh || true",
-    "build": "pnpm --filter @heo/core --filter @heo/middleware run build",
-    "typecheck": "tsc --build --force && pnpm --filter @heo/benchmark typecheck",
+    "build": "pnpm --filter @human-eyes-only/core --filter @human-eyes-only/middleware run build",
+    "typecheck": "tsc --build --force && pnpm --filter @human-eyes-only/benchmark typecheck",
     "test": "pnpm -r run test",
-    "compat": "pnpm --filter @heo/core build && pnpm --filter @heo/benchmark compat",
+    "compat": "pnpm --filter @human-eyes-only/core build && pnpm --filter @human-eyes-only/benchmark compat",
     "check:live": "pnpm build && node scripts/live-check.mjs",
     "check:artifacts": "node scripts/check-artifacts.mjs",
     "format": "biome format --write .",

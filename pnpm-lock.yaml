@@ -29,10 +29,10 @@ importers:
 
   benchmark:
     dependencies:
-      '@heo/core':
+      '@human-eyes-only/core':
         specifier: workspace:*
         version: link:../packages/core
-      '@heo/generator':
+      '@human-eyes-only/generator':
         specifier: workspace:*
         version: link:../packages/generator
       parse5:
@@ -54,10 +54,10 @@ importers:
 
   examples/node-basic:
     dependencies:
-      '@heo/generator':
+      '@human-eyes-only/generator':
         specifier: workspace:*
         version: link:../../packages/generator
-      '@heo/middleware':
+      '@human-eyes-only/middleware':
         specifier: workspace:*
         version: link:../../packages/middleware
     devDependencies:
@@ -73,16 +73,16 @@ importers:
 
   packages/generator:
     devDependencies:
-      '@heo/core':
+      '@human-eyes-only/core':
         specifier: workspace:*
         version: link:../core
 
   packages/middleware:
     dependencies:
-      '@heo/core':
+      '@human-eyes-only/core':
         specifier: workspace:^
         version: link:../core
-      '@heo/generator':
+      '@human-eyes-only/generator':
         specifier: workspace:^
         version: link:../generator
     devDependencies:

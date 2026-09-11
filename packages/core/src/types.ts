@@ -77,11 +77,11 @@ export interface CarrierParams {
 /**
  * The generator, supplied by the host.
  *
- * `@heo/core` never loads it: the engine is a `.wasm` artifact and core is a
+ * `@human-eyes-only/core` never loads it: the engine is a `.wasm` artifact and core is a
  * synchronous, framework-neutral, toolchain-neutral pure function, so the
  * module and the publisher's font file are both the host's to provide — the
  * same reasoning that keeps font bytes out of the generator binary.
- * `@heo/middleware` does that wiring on the publisher's behalf, which is what
+ * `@human-eyes-only/middleware` does that wiring on the publisher's behalf, which is what
  * makes carriers work on install without putting a `.wasm` loader inside core.
  *
  * Implementations must be **deterministic in the seed**: the same text, params

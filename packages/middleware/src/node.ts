@@ -2,18 +2,18 @@
  * Generic Node `(req, res, next)` middleware adapter.
  *
  * Buffers HTML responses and delegates every transformation decision to
- * `@heo/core`. See packages/middleware/README.md.
+ * `@human-eyes-only/core`. See packages/middleware/README.md.
  *
  * There is deliberately no transformation logic below this line. The adapter
  * inspects a content type, buffers a body, calls one function, and fixes up
  * headers. Anything cleverer belongs in core, where it is testable without a
  * socket.
  *
- * What it *does* hold is the wiring core refuses to. `@heo/core` never loads a
+ * What it *does* hold is the wiring core refuses to. `@human-eyes-only/core` never loads a
  * generator: it is a synchronous, framework-neutral, toolchain-neutral pure
  * function, and a `.wasm` loader inside it is what would stop a Python or edge
  * adapter existing. That boundary was never an argument for making the
- * publisher assemble the parts, so this package depends on `@heo/generator`,
+ * publisher assemble the parts, so this package depends on `@human-eyes-only/generator`,
  * instantiates it over the publisher's font, and hands core the
  * `CarrierRenderer`. One install, and carriers work.
  *
@@ -48,8 +48,8 @@ import {
   HeoMarkupError,
   RESPONSE_HEADER,
   transformHtml,
-} from "@heo/core";
-import { createCarrierRenderer } from "@heo/generator/host";
+} from "@human-eyes-only/core";
+import { createCarrierRenderer } from "@human-eyes-only/generator/host";
 
 const CSP_HEADER = "content-security-policy";
 
@@ -183,7 +183,7 @@ export function heoMiddleware(options: HeoMiddlewareOptions = {}) {
   if (font === undefined && fontSizePx !== undefined) {
     throw new Error(
       "heoMiddleware: fontSizePx was set without a font. The size describes the face the " +
-        "carriers are drawn from, so one without the other draws nothing.",
+      "carriers are drawn from, so one without the other draws nothing.",
     );
   }
   // Loud and immediate, because it is wrong for every request. A font with no
@@ -192,8 +192,8 @@ export function heoMiddleware(options: HeoMiddlewareOptions = {}) {
   if (font !== undefined && fontSizePx === undefined) {
     throw new Error(
       "heoMiddleware: a font was supplied without fontSizePx. A carrier is drawn at an " +
-        "absolute size and nothing here can infer the computed one, so there is no default " +
-        "that could be right: pass the type size of the protected text in CSS pixels.",
+      "absolute size and nothing here can infer the computed one, so there is no default " +
+      "that could be right: pass the type size of the protected text in CSS pixels.",
     );
   }
 
@@ -206,10 +206,10 @@ export function heoMiddleware(options: HeoMiddlewareOptions = {}) {
     font === undefined
       ? null
       : createCarrierRenderer({
-          font: bytesOf(font),
-          fallbacks,
-          ...(wasm === undefined ? {} : { wasm }),
-        });
+        font: bytesOf(font),
+        fallbacks,
+        ...(wasm === undefined ? {} : { wasm }),
+      });
 
   const carrier = {
     renderer,
@@ -338,7 +338,7 @@ export function heoMiddleware(options: HeoMiddlewareOptions = {}) {
           // which is the operator's channel.
           const body = Buffer.from(
             `HEO refused to serve this response. See the origin log for the reason ` +
-              `(${(reported as Error).name}).\n`,
+            `(${(reported as Error).name}).\n`,
           );
           response.setHeader("content-length", String(body.length));
           return originalEnd(body, callback as never);

@@ -192,12 +192,12 @@ rather than a rule someone has to remember.
 ## Install
 
 ```bash
-npm install @heo/middleware
+npm install @human-eyes-only/middleware
 ```
 
-That is the only package you need: it pulls in `@heo/core` and `@heo/generator`,
+That is the only package you need: it pulls in `@human-eyes-only/core` and `@human-eyes-only/generator`,
 and the generator ships its WebAssembly module prebuilt, so no Rust toolchain is
-involved. `@heo/core` is installable on its own if you are writing an adapter for
+involved. `@human-eyes-only/core` is installable on its own if you are writing an adapter for
 something other than Node.
 
 Pre-v0.1 and alpha: the markup and the options will change, and there is no
@@ -206,7 +206,7 @@ measured protection claim yet.
 ## Usage
 
 ```ts
-import { heoMiddleware } from "@heo/middleware";
+import { heoMiddleware } from "@human-eyes-only/middleware";
 
 app.use(
   heoMiddleware({
@@ -338,13 +338,13 @@ governs styles it adds an explicit `style-src-elem` carrying your `default-src`
 sources plus the nonce, rather than widening a directive that also governs scripts.
 It never adds a host, a scheme, or `'unsafe-inline'`, and it touches no directive
 outside the style channel. A `<meta http-equiv>` policy is rewritten in place; the
-response header is rewritten by `@heo/middleware`.
+response header is rewritten by `@human-eyes-only/middleware`.
 `heoMiddleware({ onRestrictiveCsp: "refuse" })` refuses such a page instead, for
 policies written by tooling that must not be touched. Either way, a policy a nonce
 cannot satisfy — `'none'` on the governing directive — is refused rather than
 worked around.
 
-Embedding `@heo/core` directly? It is handed a string, so it sees
+Embedding `@human-eyes-only/core` directly? It is handed a string, so it sees
 `<meta http-equiv>` and never a response header. Pass the header in as
 `contentSecurityPolicy` and write `stats.csp.headerPolicy` back out, or the header
 half of your policy will still block the stylesheet.
@@ -354,8 +354,8 @@ half of your policy will still block the stylesheet.
 ```bash
 pnpm install && pnpm build
 rustup target add wasm32-unknown-unknown
-pnpm --filter @heo/generator build
-pnpm --filter @heo/example-node-basic start
+pnpm --filter @human-eyes-only/generator build
+pnpm --filter @human-eyes-only/example-node-basic start
 ```
 
 The generator build is not optional in a clone: a missing module is a server that

@@ -1,5 +1,5 @@
 /**
- * @heo/core — public surface.
+ * @human-eyes-only/core — public surface.
  *
  * The entire package reduces to a single entry point so that adapters stay
  * trivial.

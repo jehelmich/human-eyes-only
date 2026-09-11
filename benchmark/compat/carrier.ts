@@ -47,8 +47,8 @@
  * of the difference.
  */
 
-import { transformHtml } from "@heo/core";
-import { createCarrierRenderer } from "@heo/generator/host";
+import { transformHtml } from "@human-eyes-only/core";
+import { createCarrierRenderer } from "@human-eyes-only/generator/host";
 import pixelmatch from "pixelmatch";
 import { PNG } from "pngjs";
 import type { Renderer, WordBox } from "../runner/render.ts";
@@ -67,7 +67,7 @@ const FAMILY = "HeoRect";
 /**
  * A second face, differing from the primary in exactly one glyph.
  *
- * It used to be the font `@heo/middleware` bundled. The package ships none now
+ * It used to be the font `@human-eyes-only/middleware` bundled. The package ships none now
  * — a middleware is not a font distributor — so a publisher who wants a
  * fallback configures one, and this is the shape of that. Built rather than
  * fetched for the same reason as the primary: one extra glyph of coverage is
@@ -204,7 +204,7 @@ export async function checkCarriers(
     carrier = createCarrierRenderer({ font });
   } catch (error) {
     // The module is derivable and deliberately untracked, so a tree that has
-    // not run `pnpm --filter @heo/generator build` cannot run this. Skipped and
+    // not run `pnpm --filter @human-eyes-only/generator build` cannot run this. Skipped and
     // said out loud, never quietly counted as a pass.
     return {
       results: [
@@ -265,7 +265,7 @@ export async function checkCarriers(
       if (left.width !== right.width || left.height !== right.height) {
         problems.push(
           `${capture.key}: page size changed from ${left.width}x${left.height} to ` +
-            `${right.width}x${right.height}`,
+          `${right.width}x${right.height}`,
         );
         continue;
       }
@@ -316,7 +316,7 @@ export async function checkCarriers(
   const undrawable = page(
     font,
     `<section><p>Group revenue <heo-protect>reached ¤4.2 this ` +
-      `quarter</heo-protect>.</p></section>`,
+    `quarter</heo-protect>.</p></section>`,
   );
 
   // With nothing to fall back to, the page goes down. Served as text it would

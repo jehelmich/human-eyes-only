@@ -1,6 +1,6 @@
 /**
  * These exercise the adapter's own job — buffering, content types, headers,
- * refusal policy, the font it now owns — not the transformation. `@heo/core` is
+ * refusal policy, the font it now owns — not the transformation. `@human-eyes-only/core` is
  * aliased to its source in `vitest.config.ts`, so no build step is needed.
  *
  * Nothing here draws a carrier, and that is deliberate: a carrier needs the

@@ -26,7 +26,7 @@
  * happily with a stylesheet whose rules were emitted in the wrong order.
  */
 
-import { ALL_CONCEALMENTS, RUNTIME_CSS } from "@heo/core";
+import { ALL_CONCEALMENTS, RUNTIME_CSS } from "@human-eyes-only/core";
 import type { Renderer } from "../runner/render.ts";
 import type { Violation } from "../runner/types.ts";
 

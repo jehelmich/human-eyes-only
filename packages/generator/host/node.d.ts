@@ -1,4 +1,4 @@
-import type { CarrierRenderer } from "@heo/core";
+import type { CarrierRenderer } from "@human-eyes-only/core";
 
 export interface CarrierRendererOptions {
   /** Font file bytes, passed through to the module untouched. */

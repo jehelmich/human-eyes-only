@@ -1,12 +1,12 @@
 # example: node-basic
 
 The smallest end-to-end demonstration of HEO: a plain Node HTTP server serving one
-marked article through `@heo/middleware`, with carriers on.
+marked article through `@human-eyes-only/middleware`, with carriers on.
 
 ```bash
 rustup target add wasm32-unknown-unknown
-pnpm --filter @heo/generator build     # once; the module is not committed
-pnpm --filter @heo/example-node-basic start
+pnpm --filter @human-eyes-only/generator build     # once; the module is not committed
+pnpm --filter @human-eyes-only/example-node-basic start
 ```
 
 | route | what it is |

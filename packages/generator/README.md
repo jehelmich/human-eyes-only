@@ -67,13 +67,13 @@ ships 417 KB containing all of HarfBuzz and `@resvg/resvg-wasm` ships 2.4 MB.
 
 ## The Node host
 
-`@heo/generator/host` wraps the module in the `CarrierRenderer` interface
-`@heo/core` takes as configuration. Core never loads the `.wasm` and does not
+`@human-eyes-only/generator/host` wraps the module in the `CarrierRenderer` interface
+`@human-eyes-only/core` takes as configuration. Core never loads the `.wasm` and does not
 know one exists.
 
 ```ts
 import { readFileSync } from "node:fs";
-import { createCarrierRenderer } from "@heo/generator/host";
+import { createCarrierRenderer } from "@human-eyes-only/generator/host";
 
 const renderer = createCarrierRenderer({
   font: new Uint8Array(readFileSync("./fonts/YourFace-Variable.ttf")),
@@ -86,7 +86,7 @@ transformHtml(html, {
 });
 ```
 
-Build it first — `pnpm --filter @heo/generator build` — because the artifact is
+Build it first — `pnpm --filter @human-eyes-only/generator build` — because the artifact is
 derivable and deliberately not committed. One WebAssembly instance serves one
 face, because the ABI keeps the parsed face in a thread-local; a fallback is a
 second instance over the same compiled module. A run drawn by a fallback comes

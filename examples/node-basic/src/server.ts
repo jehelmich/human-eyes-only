@@ -4,8 +4,8 @@
  * to work anywhere a Node response object exists, and a framework here would
  * hide it if that stopped being true.
  *
- *   pnpm --filter @heo/generator build     # once; the module is not committed
- *   pnpm --filter @heo/example-node-basic start
+ *   pnpm --filter @human-eyes-only/generator build     # once; the module is not committed
+ *   pnpm --filter @human-eyes-only/example-node-basic start
  *
  * Routes:
  *   /            index
@@ -14,8 +14,8 @@
  *
  * Two things this file exists to show, beyond wiring.
  *
- * **The publisher supplies one font and nothing else**. `@heo/middleware`
- * depends on `@heo/generator`, instantiates it, and hands core the renderer, so
+ * **The publisher supplies one font and nothing else**. `@human-eyes-only/middleware`
+ * depends on `@human-eyes-only/generator`, instantiates it, and hands core the renderer, so
  * installing one package is enough to draw carriers. Core still loads neither —
  * that boundary is what keeps a Python or edge adapter possible — but it was
  * never an argument for making the publisher assemble the parts.
@@ -33,7 +33,7 @@ import { createServer } from "node:http";
 import { createRequire } from "node:module";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { heoMiddleware } from "@heo/middleware";
+import { heoMiddleware } from "@human-eyes-only/middleware";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const PAGES = join(HERE, "..", "pages");
@@ -106,12 +106,12 @@ function middleware(): ReturnType<typeof heoMiddleware> {
   } catch (error) {
     process.stderr.write(
       `heo example: the middleware could not be started.\n` +
-        `  ${(error as Error).message}\n\n` +
-        `If the generator module is missing, build it first:\n\n` +
-        `  rustup target add wasm32-unknown-unknown\n` +
-        `  pnpm --filter @heo/generator build\n\n` +
-        `The server does not start without it. Serving this page with carriers ` +
-        `disabled would publish every marked value in the clear.\n`,
+      `  ${(error as Error).message}\n\n` +
+      `If the generator module is missing, build it first:\n\n` +
+      `  rustup target add wasm32-unknown-unknown\n` +
+      `  pnpm --filter @human-eyes-only/generator build\n\n` +
+      `The server does not start without it. Serving this page with carriers ` +
+      `disabled would publish every marked value in the clear.\n`,
     );
     process.exit(1);
   }
@@ -131,10 +131,10 @@ const options = {
   onTransform(stats, url) {
     process.stdout.write(
       `transform ${url} marks=${stats.marks} ` +
-        `carriers=${stats.carriers} fallbacks=${stats.carrierFallbacks} ` +
-        `shuffles=${stats.shuffles} chaff=${stats.chaffNodes} ` +
-        `bytes=${stats.inputBytes}->${stats.outputBytes} ` +
-        `${stats.durationMs.toFixed(2)}ms seed=${stats.seed}\n`,
+      `carriers=${stats.carriers} fallbacks=${stats.carrierFallbacks} ` +
+      `shuffles=${stats.shuffles} chaff=${stats.chaffNodes} ` +
+      `bytes=${stats.inputBytes}->${stats.outputBytes} ` +
+      `${stats.durationMs.toFixed(2)}ms seed=${stats.seed}\n`,
     );
   },
   onRefusal(error, url) {

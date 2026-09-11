@@ -1,10 +1,10 @@
-# @heo/middleware
+# @human-eyes-only/middleware
 
 Generic Node HTTP middleware that buffers an outgoing HTML response, hands it to
-`@heo/core`, and writes the transformed result back.
+`@human-eyes-only/core`, and writes the transformed result back.
 
 ```ts
-import { heoMiddleware } from "@heo/middleware";
+import { heoMiddleware } from "@human-eyes-only/middleware";
 
 app.use(heoMiddleware());
 ```
@@ -22,7 +22,7 @@ Responsibilities, in order:
 5. write the transformed HTML.
 
 This package must contain **no transformation logic**. Anything that decides
-*what* the output looks like belongs in `@heo/core`.
+*what* the output looks like belongs in `@human-eyes-only/core`.
 
 ## Options
 
