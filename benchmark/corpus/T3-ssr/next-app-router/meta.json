@@ -1,0 +1,11 @@
+{
+  "provenance": "synthetic",
+  "archetype": "Next.js App Router RSC flight payload",
+  "source": "",
+  "licence": "",
+  "keyPhrases": [
+    "118%"
+  ],
+  "expectRefusal": true,
+  "notes": "The flight payload carries the protected text verbatim. Element-shaped carriers cannot round-trip through a serialized element tree without per-format node synthesis."
+}

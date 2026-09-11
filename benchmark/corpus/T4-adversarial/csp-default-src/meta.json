@@ -1,0 +1,11 @@
+{
+  "provenance": "synthetic",
+  "archetype": "CSP where default-src governs styles and scripts together",
+  "source": "",
+  "licence": "",
+  "keyPhrases": [
+    "$14.6M",
+    "$11.2M"
+  ],
+  "notes": "The subtlest branch of the policy edit, and the one most likely to be got wrong. No style directive exists, so default-src governs the stylesheet \u2014 but it governs the script channel too, and appending a nonce to it would authorise a nonced <script> as well. HEO must add an explicit style-src-elem carrying default-src's own sources plus the nonce, and leave default-src untouched. C2 checks that no other directive gained a token."
+}

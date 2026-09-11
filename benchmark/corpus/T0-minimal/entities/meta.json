@@ -1,0 +1,12 @@
+{
+  "provenance": "synthetic",
+  "archetype": "character references and non-breaking spaces in the region",
+  "source": "",
+  "licence": "",
+  "keyPhrases": [
+    "\u00a31.4M",
+    "\u20ac900k",
+    "3.5x"
+  ],
+  "notes": "parse5 decodes references on parse and re-encodes a smaller set on serialize, so this document is where a round-trip defect shows up first."
+}

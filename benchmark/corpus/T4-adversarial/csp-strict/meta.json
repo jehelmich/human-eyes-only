@@ -1,0 +1,11 @@
+{
+  "provenance": "synthetic",
+  "archetype": "strict Content-Security-Policy with no unsafe-inline",
+  "source": "",
+  "licence": "",
+  "keyPhrases": [
+    "6.3%",
+    "4.8%"
+  ],
+  "notes": "A policy of style-src 'self' admits neither a style attribute nor an unnonced stylesheet. Measured before the CSP guard existed, this document rendered the publisher's sentence interleaved with a fabricated one carrying figures that were not theirs, because the permutation was never inverted and the chaff painted. It was a refusal until chaff concealment moved out of the style attribute and into the injected stylesheet, which left one <style> element as the only thing HEO needs a policy to permit — and that is a thing a nonce can grant. What it demonstrates now is the whole negotiation: HEO nonces its own element, rewrites style-src and no other directive to name that nonce, and the page transforms and renders correctly under the policy. C2 checks that the edit is additive and scoped, C3 that the reader sees the publisher's sentence and nothing else, and C4 that the browser reports no violation."
+}

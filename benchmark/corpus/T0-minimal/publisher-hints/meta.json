@@ -1,0 +1,10 @@
+{
+  "provenance": "synthetic",
+  "archetype": "heo-protect and heo-chaff supplied by the publisher",
+  "source": "",
+  "licence": "",
+  "keyPhrases": [
+    "$35M"
+  ],
+  "notes": "Both elements must be removed before serialization. Shipped, they mark the protected spans and publish the candidate list, which is what gate C12 asserts. This is also the one corpus document that keeps the content form of heo-chaff, with the display:none rule a publisher has to write for it: the prose is ordinary text until HEO conceals it."
+}

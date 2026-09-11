@@ -1,0 +1,257 @@
+/*
+ * The publisher's stylesheet. HEO adds one `<style>` element of its own and
+ * touches nothing here.
+ *
+ * This page is set the way its designer would set it. That is worth saying
+ * because it used to be set the way the generator needed: Public Sans is
+ * variable, its default instance is `wght` 100, and the generator drew that
+ * instance whatever the page asked for — so the article was pinned to Thin and
+ * washed out against the rest of the document. The generator takes the weight
+ * now (`fontVariations` in `src/server.ts`), so the pin is gone and the article
+ * is 400.
+ *
+ * What the page still owes the generator is two things, and only two.
+ *
+ *   1. The same face and the same size. `@font-face` below and
+ *      `heoMiddleware({ font })` in `src/server.ts` read the same file, and
+ *      `__ARTICLE_FONT_PX__` and `__ARTICLE_WEIGHT__` are substituted by the
+ *      server from the same constants it passes as `fontSizePx` and
+ *      `fontVariations`. A stylesheet and a config that disagree about either
+ *      is the failure the carrier notes describe, and cannot be caught by
+ *      reading one declaration alone.
+ *   2. No kerning, which is the one shaping feature that moves ink here. See
+ *      the rule.
+ *
+ * `font-variant-ligatures: none` used to be here as a third and is not, because
+ * it was measured rather than assumed: `liga` off against `liga` on over
+ * `fi fl ffi ff office final flow affiliate difficult` at 19 px / 400 is zero
+ * differing pixels and zero width delta on every token. Public Sans declares
+ * the feature and substitutes nothing, so the declaration bought nothing.
+ */
+
+@font-face {
+  font-family: "Public Sans";
+  src: url("/fonts/public-sans-400.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+
+:root {
+  color-scheme: light dark;
+  --rule: color-mix(in srgb, currentColor 18%, transparent);
+}
+
+body {
+  margin: 0 auto;
+  max-width: 42rem;
+  padding: 2.5rem 1.25rem 4rem;
+  font:
+    17px / 1.7 "Public Sans",
+    ui-sans-serif,
+    system-ui,
+    sans-serif;
+  font-weight: 300;
+}
+
+.eyebrow {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.7rem;
+  font-weight: 600;
+  opacity: 0.6;
+}
+
+h1 {
+  font-size: 2.6rem;
+  font-weight: 200;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  margin: 0.6rem 0 0.75rem;
+}
+
+h2 {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin: 2.5rem 0 0.75rem;
+  opacity: 0.65;
+}
+
+.standfirst {
+  font-size: 1.15rem;
+  font-weight: 200;
+  opacity: 0.8;
+  margin-bottom: 2rem;
+}
+
+hr {
+  margin: 2.5rem 0;
+  border: 0;
+  border-top: 1px solid var(--rule);
+}
+
+/*
+ * The protected article. Everything a publisher marks lives in here, so this is
+ * the block that has to agree with the generator: one face, one size, one
+ * weight, and no kerning.
+ */
+.report {
+  font-size: __ARTICLE_FONT_PX__px;
+  line-height: 1.75;
+  font-weight: __ARTICLE_WEIGHT__;
+  /*
+   * The generator does a cmap lookup and an advance per glyph and no shaping
+   * at all, while a browser applies the font's `kern`
+   * feature by default. Measured on this face at 19 px / 400, carrier width
+   * against native width: `7.2%` is 1.92 px narrower kerned, `AV` 2.17 px,
+   * `Ta` 1.12 px. That is three to four times the half-pixel the carrier gate
+   * allows and it is visible on the line, so the feature stays off.
+   */
+  font-kerning: none;
+  /*
+   * Grayscale smoothing, and this one is worth understanding before removing.
+   * The geometry matches: a carrier's advance lands within 0.06 px of the text
+   * it replaced, measured on this page. What does not match is how the two are
+   * *filled*. A browser rasterises text with its own gamma and stem handling
+   * and fills an SVG path with plain coverage antialiasing, so the same outline
+   * comes out paler as a path than as a glyph. Measured here as painted
+   * coverage over one word: without the hint the native text carries 13.8% more
+   * ink than the carrier beside it, with it 0.2% more. It is a macOS-only hint
+   * in both engines and it is cosmetic: nothing about the protection depends
+   * on it.
+   */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/*
+ * Headings and table headers restore a heavier weight for legibility, through
+ * `font-weight` like anything else — the article no longer pins an axis, so
+ * nothing here has to work around one. Nothing in either is marked: a mark
+ * inside one would be drawn at the document's configured weight and rendered
+ * at 600, which is the same class of mismatch `fontSizePx` has and `size` on
+ * the mark is the answer to.
+ */
+.report h2 {
+  font-size: 0.8rem;
+}
+
+.report p {
+  margin: 0 0 1.25rem;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.75rem 0;
+}
+
+caption {
+  text-align: left;
+  opacity: 0.6;
+  padding-bottom: 0.6rem;
+}
+
+th,
+td {
+  border-bottom: 1px solid var(--rule);
+  padding: 0.5rem 0.5rem 0.5rem 0;
+  text-align: left;
+}
+
+th {
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.6;
+}
+
+td + td,
+th + th {
+  text-align: right;
+}
+
+pre {
+  background: color-mix(in srgb, currentColor 8%, transparent);
+  padding: 0.9rem;
+  overflow-x: auto;
+  font-size: 0.85rem;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin-top: 2.5rem;
+}
+
+label {
+  flex-basis: 100%;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+input {
+  flex: 1 1 16rem;
+  padding: 0.55rem;
+  border: 1px solid var(--rule);
+  background: transparent;
+  color: inherit;
+  font: inherit;
+}
+
+button {
+  padding: 0.55rem 1.1rem;
+  border: 1px solid currentColor;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.footnotes,
+footer {
+  font-size: 0.85rem;
+  opacity: 0.65;
+}
+
+footer {
+  margin-top: 3rem;
+  border-top: 1px solid var(--rule);
+  padding-top: 1rem;
+}
+
+nav.routes {
+  line-height: 2;
+}
+
+nav.routes code {
+  font-size: 0.9em;
+}
+
+/*
+ * The publisher's markup, before HEO sees it.
+ *
+ * `heo-protect` and `heo-shuffle` wrap text the reader is meant to read, so
+ * they are inline and carry nothing of their own — which is what an unknown
+ * element already is, stated here so a reset cannot take it away.
+ *
+ * `heo-chaff` is different and this rule is not optional. Its content is prose
+ * the reader must never see; HEO conceals it, but until HEO runs it is ordinary
+ * text in the middle of a paragraph. Any route that can serve the page
+ * untransformed — /raw/report here, a static preview, a build step that runs
+ * before the middleware — shows it without this.
+ */
+heo-protect,
+heo-shuffle {
+  display: inline;
+}
+
+heo-chaff {
+  display: none;
+}

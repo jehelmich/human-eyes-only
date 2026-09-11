@@ -1,0 +1,11 @@
+{
+  "provenance": "synthetic",
+  "archetype": "custom elements and data attributes around the region",
+  "source": "",
+  "licence": "",
+  "keyPhrases": [
+    "$4.2M",
+    "18.4%"
+  ],
+  "notes": "The wrapper's data-values attribute carries the same figures in a machine-readable form. C11 should treat it as a side channel."
+}

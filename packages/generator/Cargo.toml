@@ -1,0 +1,26 @@
+[package]
+name = "heo-generator"
+version = "0.0.0"
+edition = "2021"
+license = "PolyForm-Noncommercial-1.0.0"
+description = "Text to randomised SVG carrier generator for HEO."
+publish = false
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+# Fontations is pre-1.0 and ships weekly, and outline output is the thing under
+# pixel diff, so a bump is a behavioural change. Pinned exactly on purpose.
+[dependencies]
+skrifa = "=0.47.0"
+
+[profile.release]
+# Measured: "z" costs 45% of per-call speed to save 4% of gzipped size.
+opt-level = 3
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
+
+[dev-dependencies]
+font-test-data = "0.9.1"

@@ -1,0 +1,6 @@
+Throughput measured at 4,800 requests per second.
+const budget = 4800; // requests per second
+Draft: 4,800 rps
+4,800
+Recalculate 4,800
+x = 4800

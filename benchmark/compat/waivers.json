@@ -1,0 +1,4 @@
+{
+  "note": "Known gate failures, each scoped to a transform and owned by an open measurement. A waived failure is reported and counted separately; it never counts as clean, so the compatibility score cannot be improved by writing one. A waiver whose gate ran and did not fail is stale and fails the run, so the list cannot outlive the defect it describes. Waivers are removed, never renewed. The list is currently empty, which is the state to keep it in.",
+  "waivers": []
+}

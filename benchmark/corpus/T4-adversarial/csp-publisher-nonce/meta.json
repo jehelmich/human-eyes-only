@@ -1,0 +1,11 @@
+{
+  "provenance": "synthetic",
+  "archetype": "CSP where the publisher already nonces their own stylesheet",
+  "source": "",
+  "licence": "",
+  "keyPhrases": [
+    "$52.4M",
+    "$48M"
+  ],
+  "notes": "HEO's nonce is added alongside the publisher's, never in place of it. The publisher's stylesheet paints visible weight and colour, so C3 fails loudly if their token is dropped while rewriting the directive \u2014 which is the failure mode a careless rewrite produces and a policy-shaped unit test would not notice."
+}

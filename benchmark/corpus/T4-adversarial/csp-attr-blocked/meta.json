@@ -1,0 +1,11 @@
+{
+  "provenance": "synthetic",
+  "archetype": "CSP that permits style elements and forbids style attributes",
+  "source": "",
+  "licence": "",
+  "keyPhrases": [
+    "63.1%",
+    "$9.7M"
+  ],
+  "notes": "The crux of the nonce negotiation, stated as a document. This policy admits a stylesheet and forbids every style attribute, so it transforms cleanly now and could not have before: concealment lived in an attribute, and there is no nonce for an attribute. A regression that puts one style attribute back fails here and nowhere else in the corpus for this reason."
+}

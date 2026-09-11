@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Pricing enquiry</title></head>
+<body>
+<section>
+<p><heo-shuffle><heo-protect alt='["List price is $1,900"]'>List price is $2,400</heo-protect> per seat per year,</heo-shuffle> with a <heo-protect>15% discount above 50 seats</heo-protect>.</p>
+</section>
+<form action="/enquiry" method="post">
+<input type="hidden" name="csrf" value="a1b2c3">
+<label for="seats">Seats</label>
+<input id="seats" name="seats" type="number" value="50" placeholder="50">
+<button type="submit">Request a quote</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,3 @@
+latency p50   18 ms
+  latency p99  240 ms
+Median latency held at 18 ms while the tail improved to 240 ms.

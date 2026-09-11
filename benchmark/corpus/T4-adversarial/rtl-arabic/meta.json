@@ -1,0 +1,11 @@
+{
+  "provenance": "synthetic",
+  "archetype": "right-to-left script with Latin figures",
+  "source": "",
+  "licence": "",
+  "keyPhrases": [
+    "4.2",
+    "3.1"
+  ],
+  "notes": "Reordering word units in an RTL run permutes the logical order, and the bidi algorithm then lays that out. Whether the result is legible is a C3 question, not a C2 one."
+}

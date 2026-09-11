@@ -1,0 +1,13 @@
+{
+  "provenance": "synthetic",
+  "archetype": "both sides of a comparison in one sentence",
+  "source": "",
+  "licence": "",
+  "keyPhrases": [
+    "$6.8M",
+    "$5.2M",
+    "41%",
+    "$1.1M"
+  ],
+  "notes": "Protecting one side of a comparison is close to worthless: $6.8M is recoverable from 'from $5.2M'. The engine infers no relation, so the publisher marks both sides as one span."
+}

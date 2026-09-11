@@ -1,0 +1,67 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm lint
+      - name: Repository hygiene
+        run: pnpm check:artifacts
+      - run: pnpm typecheck
+      - run: pnpm test
+
+      # The compatibility gate over the whole corpus, against both the identity
+      # transform and the engine. Identity scoring below 100% is a harness bug
+      # and the run says so; the engine failing a gate is a rejected change.
+      - name: Compatibility gate (identity)
+        run: pnpm compat
+
+      - name: Compatibility gate (engine)
+        run: pnpm compat -- --transform heo
+
+  # C3 and C4 need Chromium, so they are a separate job: the fast one above
+  # stays under the every-push budget and this one runs alongside it rather than
+  # in front of it (ROADMAP.md, cadence).
+  visual:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @heo/benchmark exec playwright install --with-deps chromium
+
+      # The carrier alignment check needs the generator, which is a cargo
+      # artifact and is deliberately not committed.
+      # Without it the check reports itself skipped rather than passing, so the
+      # build belongs here: a gate that is not run is not a gate. The runner
+      # image ships a Rust toolchain; only the target is missing.
+      - run: rustup target add wasm32-unknown-unknown
+      - run: pnpm --filter @heo/generator build
+
+      - name: Visual gate (identity)
+        run: pnpm compat -- --browser
+
+      - name: Visual gate (engine)
+        run: pnpm compat -- --transform heo --browser

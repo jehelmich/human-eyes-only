@@ -1,0 +1,10 @@
+{
+  "provenance": "synthetic",
+  "archetype": "nothing marked at all",
+  "source": "",
+  "licence": "",
+  "keyPhrases": [
+    "$9.4M"
+  ],
+  "notes": "A page with nothing marked must come back byte-identical, and HEO must not even declare itself on it."
+}

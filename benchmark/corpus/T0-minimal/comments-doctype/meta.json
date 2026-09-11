@@ -1,0 +1,10 @@
+{
+  "provenance": "synthetic",
+  "archetype": "comments, doctype and head ordering preserved",
+  "source": "",
+  "licence": "",
+  "keyPhrases": [
+    "99.95%"
+  ],
+  "notes": "A comment adjacent to a protected section is a span-level marker in everything but name; the corpus keeps one so the gate notices if HEO ever starts adding them."
+}

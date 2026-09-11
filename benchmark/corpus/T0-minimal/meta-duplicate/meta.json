@@ -1,0 +1,11 @@
+{
+  "provenance": "synthetic",
+  "archetype": "OpenGraph description repeating a protected figure",
+  "source": "",
+  "licence": "",
+  "keyPhrases": [
+    "$22M"
+  ],
+  "notes": "The marked clause carries $22M and the meta description repeats it. Serves, and leaves the description untouched, for the reason in json-ld-duplicate: HEO cannot reach a meta tag and does not look. Kept in the corpus so the limit is exercised rather than only written down.",
+  "expectRefusal": false
+}

@@ -1,0 +1,10 @@
+{
+  "provenance": "synthetic",
+  "archetype": "every skipped tag present inside a protected region",
+  "source": "",
+  "licence": "",
+  "keyPhrases": [
+    "4,800 requests per second"
+  ],
+  "notes": "Every tag on the engine's skip list appears here with a figure in it. Only the paragraph is eligible."
+}

@@ -1,0 +1,10 @@
+{
+  "provenance": "synthetic",
+  "archetype": "declarative shadow DOM inside the region",
+  "source": "",
+  "licence": "",
+  "keyPhrases": [
+    "$19.7M"
+  ],
+  "notes": "Text inside a declarative shadow root is rendered to a person and is invisible to a selector that only walks the light DOM. HEO does not transform it, which makes it a containment question rather than a rendering one."
+}

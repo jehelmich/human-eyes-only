@@ -1,0 +1,12 @@
+{
+  "provenance": "synthetic",
+  "archetype": "CSP that forbids stylesheets outright",
+  "source": "",
+  "licence": "",
+  "keyPhrases": [
+    "1.8%",
+    "2.6%"
+  ],
+  "expectRefusal": true,
+  "notes": "A nonce widens a source list; it cannot populate an empty one. 'none' means no stylesheet may apply however it is authorised, so there is nothing to negotiate and HEO refuses. This document exists so that the nonce path cannot quietly grow into treating every policy as satisfiable \u2014 HeoCspError has to survive for the case it is actually about."
+}

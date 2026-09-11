@@ -1,0 +1,11 @@
+{
+  "provenance": "synthetic",
+  "archetype": "a form with controls inside and around the region",
+  "source": "",
+  "licence": "",
+  "keyPhrases": [
+    "$2,400",
+    "15%"
+  ],
+  "notes": "C8's case. The hidden CSRF value, the action URL and the input's own value must come through byte-identical."
+}

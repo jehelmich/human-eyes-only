@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "note": "The sweep. Deltas are per-channel greyscale offsets from the background, in units of 255. A delta the background has no headroom for is skipped, not clipped, and the skip is recorded.",
+
+  "deltas": [0, 1, 2, 3, 5, 8, 12, 16, 24, 32],
+  "control": "max",
+
+  "backgrounds": [
+    { "id": "white", "rgb": [255, 255, 255], "directions": ["darker"] },
+    { "id": "near_white", "rgb": [246, 246, 246], "directions": ["darker", "lighter"] },
+    { "id": "mid_grey", "rgb": [128, 128, 128], "directions": ["darker", "lighter"] },
+    { "id": "near_black", "rgb": [18, 18, 18], "directions": ["lighter"] }
+  ],
+
+  "styles": [
+    { "id": "body_sans", "family": "Helvetica, Arial, sans-serif", "size_px": 14, "weight": 400 },
+    {
+      "id": "body_serif",
+      "family": "Georgia, 'Times New Roman', serif",
+      "size_px": 14,
+      "weight": 400
+    },
+    {
+      "id": "heading_serif",
+      "family": "Georgia, 'Times New Roman', serif",
+      "size_px": 28,
+      "weight": 600
+    }
+  ],
+
+  "render": {
+    "viewport_px": 1400,
+    "padding_px": 24,
+    "line_height": 1.6,
+    "device_scale": 1,
+    "hidpi_scale": 2
+  },
+
+  "degradations": [
+    { "id": "png", "kind": "identity" },
+    { "id": "jpeg_q90", "kind": "jpeg", "quality": 90 },
+    { "id": "jpeg_q75", "kind": "jpeg", "quality": 75 },
+    { "id": "jpeg_q50", "kind": "jpeg", "quality": 50 },
+    { "id": "down_0.5", "kind": "downscale", "factor": 0.5 },
+    { "id": "down_0.25", "kind": "downscale", "factor": 0.25 },
+    { "id": "screenshot", "kind": "screenshot", "quality": 85 }
+  ],
+
+  "preprocessing": ["raw", "normalised"],
+
+  "quick": {
+    "deltas": [0, 1, 3, 8, 32],
+    "backgrounds": ["white", "near_black"],
+    "styles": ["body_sans"],
+    "degradations": ["png", "jpeg_q75", "down_0.5"]
+  }
+}

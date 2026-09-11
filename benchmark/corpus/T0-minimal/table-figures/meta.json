@@ -1,0 +1,12 @@
+{
+  "provenance": "synthetic",
+  "archetype": "numeric table cells inside the region",
+  "source": "",
+  "licence": "",
+  "keyPhrases": [
+    "$2.4M",
+    "$1.3M",
+    "$0.5M"
+  ],
+  "notes": "The chaff attribute sits on the <table>, where appending a node would be foster-parented straight out of it; the mark is in the <caption>, which is also where the host resolver has to land."
+}

@@ -1,0 +1,16 @@
+# Minimum set. Everything else degrades to a skipped row in the report.
+pillow>=10.0
+pytesseract>=0.3.10
+
+# Rasteriser. Strongly preferred: it is the engine an attacker screenshots.
+playwright>=1.40
+
+# Neural OCR. ONNX, CPU, no system dependencies.
+rapidocr-onnxruntime>=1.3
+
+# Both neural engines take and return arrays. It arrives transitively with
+# rapidocr today, which is not a reason to leave it undeclared.
+numpy>=1.24
+
+# Optional second neural engine, large download, not installed by default.
+# easyocr>=1.7

@@ -1,0 +1,28 @@
+{
+  "calibrated": true,
+  "calibratedAt": "CP-0 for the fixed and ratio terms; the carrier term from the generator's own measurement",
+  "note": "outputBytes <= fixedAllowanceBytes + inputBytes * maxByteRatio + carriers * perCarrierBytes. The fixed term is the document-level declaration plus the floor of chaff a region receives regardless of its size. The per-carrier term exists because a carrier's cost is set by the word it draws and not by the page it sits on: about 900 bytes of path markup per word, measured, whether the document is 500 bytes or 50 KB. Folding either into the ratio makes the ratio meaningless \u2014 the fixed term below a few kilobytes, the carrier term on any page that protects more than it publishes. Ceilings are only ever tightened (ROADMAP.md).",
+  "classes": [
+    {
+      "maxInputBytes": 8192,
+      "fixedAllowanceBytes": 2048,
+      "maxByteRatio": 4.0,
+      "maxDurationMs": 150,
+      "perCarrierBytes": 1100
+    },
+    {
+      "maxInputBytes": 65536,
+      "fixedAllowanceBytes": 2048,
+      "maxByteRatio": 4.0,
+      "maxDurationMs": 400,
+      "perCarrierBytes": 1100
+    },
+    {
+      "maxInputBytes": 1048576,
+      "fixedAllowanceBytes": 2048,
+      "maxByteRatio": 3.5,
+      "maxDurationMs": 2000,
+      "perCarrierBytes": 1100
+    }
+  ]
+}

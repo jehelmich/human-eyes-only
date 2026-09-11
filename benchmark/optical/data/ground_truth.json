@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "note": "Ground truth for the M10 sweep. Sentences are shaped like the spans HEO protects: a figure, a period, and a comparison, so that a partial read is still a wrong answer rather than a missing one. Tokens are the substrings that carry the fact; they are what the digit-token metric scores.",
+  "lines": {
+    "s1": {
+      "text": "Revenue rose to $4.2M in Q3, up from $3.1M.",
+      "tokens": ["$4.2M", "Q3", "$3.1M"]
+    },
+    "s2": {
+      "text": "Margin held at 41.8% while headcount fell to 1,240.",
+      "tokens": ["41.8%", "1,240"]
+    },
+    "s3": {
+      "text": "The board approved a $75,000 dividend on 14 March 2026.",
+      "tokens": ["$75,000", "14", "2026"]
+    },
+    "s4": {
+      "text": "Churn dropped from 7.9% to 5.2% across 318 accounts.",
+      "tokens": ["7.9%", "5.2%", "318"]
+    },
+    "s5": {
+      "text": "Q4 guidance narrows to $18.6M-$19.4M, up 12% year on year.",
+      "tokens": ["Q4", "$18.6M", "$19.4M", "12%"]
+    }
+  },
+  "blocks": {
+    "core": ["s1", "s2", "s3"],
+    "alt": ["s4", "s5", "s1"]
+  },
+  "default_block": "core"
+}

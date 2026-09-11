@@ -1,0 +1,197 @@
+# ─── Dependencies ──────────────────────────────────────────────────────────
+node_modules/
+.pnpm-store/
+.pnpm/
+jspm_packages/
+web_modules/
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/versions
+.yarn-integrity
+
+# ─── Build output ──────────────────────────────────────────────────────────
+dist/
+build/
+out/
+lib/
+es/
+*.tsbuildinfo
+.tsbuildinfo
+.rollup.cache/
+.swc/
+.turbo/
+.rspack/
+.parcel-cache/
+.next/
+.nuxt/
+.astro/
+.svelte-kit/
+.vercel/
+.netlify/
+.wrangler/
+.output/
+
+# ─── Package artifacts ─────────────────────────────────────────────────────
+*.tgz
+*.tar.gz
+.npm/
+.node_repl_history
+
+# ─── Tests, coverage, regression baselines ─────────────────────────────────
+coverage/
+*.lcov
+.nyc_output/
+test-results/
+playwright-report/
+playwright/.cache/
+blob-report/
+.vitest/
+__snapshots__/*.snap.new
+# Approved visual baselines are committed; candidate and diff images are not.
+**/*-actual.png
+**/*-diff.png
+**/__screenshots__/**/*.actual.png
+
+# ─── Benchmark and research output ─────────────────────────────────────────
+# Reports are published deliberately, not swept in by `git add`.
+benchmark/results/
+benchmark/.cache/
+benchmark/corpus/.fetched/
+
+# Python suites (the optical one, and any that follow) sit outside the pnpm
+# workspace deliberately. Written generically rather than per suite: the first
+# of these was kept out of the repository only by a .gitignore that `uv` writes
+# inside the virtualenv, which is 500 MB of protection resting on one tool's
+# internal behaviour. Nothing a run produces is committed: venvs, rendered
+# samples, model caches, per-cell JSON and the written tables are all derivable.
+# What a run changed in the design graduates into docs/decisions.md instead.
+benchmark/**/results/*.json
+benchmark/**/results/*.md
+benchmark/**/samples/
+benchmark/**/page/
+benchmark/**/models/
+
+# Research prose is local working material and is not published under the
+# project's name: machine-assisted syntheses of other people's work, only spot
+# checked, and candid about competitors and legal exposure. A finding graduates
+# into docs/decisions.md citing the primary source; the review itself stays out.
+research/
+*.bench.json
+!benchmark/results/**/*.published.json
+
+# ─── Environment and secrets ───────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+!.env.template
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+id_rsa*
+id_ed25519*
+.htpasswd
+secrets.json
+credentials.json
+service-account*.json
+.aws/
+.gcloud/
+.netrc
+.npmrc.local
+
+# ─── Editors and IDEs ──────────────────────────────────────────────────────
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.shared.json
+.idea/
+*.iml
+*.sublime-project
+*.sublime-workspace
+.history/
+.zed/
+*.swp
+*.swo
+*~
+\#*\#
+.\#*
+
+# ─── Agent and tooling scratch ─────────────────────────────────────────────
+.githooks/
+.claude/settings.local.json
+.aider*
+.cursorignore
+.continue/
+
+# ─── Operating system ──────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+.fseventsd
+.VolumeIcon.icns
+.DocumentRevisions-V100
+.TemporaryItems
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+.directory
+.Trash-*
+.nfs*
+
+# ─── Logs and diagnostics ──────────────────────────────────────────────────
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+*.heapsnapshot
+*.cpuprofile
+prof/
+.clinic/
+
+# ─── Temporary ─────────────────────────────────────────────────────────────
+tmp/
+temp/
+.tmp/
+.cache/
+*.tmp
+*.bak
+*.orig
+*.rej
+
+# ─── Python ────────────────────────────────────────────────────────────────
+# Unanchored on purpose. A virtualenv or a bytecode cache is never wanted
+# anywhere in this tree, and `scripts/check-artifacts.mjs` catches the reverse
+# mistake of a rule here swallowing something that is actually source.
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# ─── Rust ──────────────────────────────────────────────────────────────────
+target/
+pkg/
+# Cargo.lock is committed: this is a shipped deliverable, not a library, and
+# reproducible builds matter more than dependency-range flexibility.
+
+# Local working material, deliberately untracked
+.local/
+
+# Agent working notes. The human-facing rules live in CONTRIBUTING.md.
+CLAUDE.md

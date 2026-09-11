@@ -1,0 +1,12 @@
+{
+  "provenance": "synthetic",
+  "archetype": "Next.js Pages Router with __NEXT_DATA__",
+  "source": "",
+  "licence": "",
+  "keyPhrases": [
+    "$7.3M",
+    "$5.9M"
+  ],
+  "expectRefusal": true,
+  "notes": "Hydration discards the transformed markup and re-renders from the payload, so the page pays the cost and gains nothing."
+}

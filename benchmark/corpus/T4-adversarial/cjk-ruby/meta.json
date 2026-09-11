@@ -1,0 +1,12 @@
+{
+  "provenance": "synthetic",
+  "archetype": "Japanese text with ruby annotation",
+  "source": "",
+  "licence": "",
+  "keyPhrases": [
+    "4.2\u5104\u5186",
+    "3.1\u5104\u5186",
+    "4.2 billion yen"
+  ],
+  "notes": "Deliberately unmarked. Japanese has no word spaces, so the paragraph is one unit and reorder cannot take it; marking it would be a refusal. Languages beyond English are deferred (ROADMAP.md). reorder splits on whitespace, so it cannot take unspaced script at all; the marked run is the Latin sentence, and what ruby is here to test is that it survives a document HEO did transform."
+}

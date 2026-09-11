@@ -1,0 +1,13 @@
+{
+  "provenance": "synthetic",
+  "archetype": "figures wrapped in inline elements inside the region",
+  "source": "",
+  "licence": "",
+  "keyPhrases": [
+    "$700 million",
+    "$310 million",
+    "23%",
+    "12%"
+  ],
+  "notes": "The figures in inline elements are left unmarked on purpose: a mark on <em>$310 million</em> is two words and reorder cannot take it, so what the document shows is unmarked text coming through untouched beside a marked clause."
+}

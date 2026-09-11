@@ -1,0 +1,12 @@
+{
+  "provenance": "synthetic",
+  "archetype": "JSON-LD articleBody repeating the protected prose",
+  "source": "",
+  "licence": "",
+  "keyPhrases": [
+    "$84.6M",
+    "$80M"
+  ],
+  "notes": "The marked clause carries $84.6M and a JSON-LD payload repeats it. HEO transforms the clause and leaves the payload alone: its mechanisms are rendering tricks and a script payload is not rendered, so there is nothing to apply. The document exists to hold that limit visible \u2014 a publisher who marks a figure their own structured data republishes has published it, and HEO neither rewrites that nor complains about it.",
+  "expectRefusal": false
+}
