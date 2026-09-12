@@ -282,9 +282,9 @@ export function transformHtml(html: string, config: HeoConfig = {}): TransformRe
     nonce === null
       ? null
       : {
-        nonce,
-        headerPolicy: csp.headerPolicy === null ? null : withStyleNonce(csp.headerPolicy, nonce),
-      };
+          nonce,
+          headerPolicy: csp.headerPolicy === null ? null : withStyleNonce(csp.headerPolicy, nonce),
+        };
 
   const output = serializeDocument(document);
 

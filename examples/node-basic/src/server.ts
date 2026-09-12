@@ -106,12 +106,12 @@ function middleware(): ReturnType<typeof heoMiddleware> {
   } catch (error) {
     process.stderr.write(
       `heo example: the middleware could not be started.\n` +
-      `  ${(error as Error).message}\n\n` +
-      `If the generator module is missing, build it first:\n\n` +
-      `  rustup target add wasm32-unknown-unknown\n` +
-      `  pnpm --filter @human-eyes-only/generator build\n\n` +
-      `The server does not start without it. Serving this page with carriers ` +
-      `disabled would publish every marked value in the clear.\n`,
+        `  ${(error as Error).message}\n\n` +
+        `If the generator module is missing, build it first:\n\n` +
+        `  rustup target add wasm32-unknown-unknown\n` +
+        `  pnpm --filter @human-eyes-only/generator build\n\n` +
+        `The server does not start without it. Serving this page with carriers ` +
+        `disabled would publish every marked value in the clear.\n`,
     );
     process.exit(1);
   }
@@ -131,10 +131,10 @@ const options = {
   onTransform(stats, url) {
     process.stdout.write(
       `transform ${url} marks=${stats.marks} ` +
-      `carriers=${stats.carriers} fallbacks=${stats.carrierFallbacks} ` +
-      `shuffles=${stats.shuffles} chaff=${stats.chaffNodes} ` +
-      `bytes=${stats.inputBytes}->${stats.outputBytes} ` +
-      `${stats.durationMs.toFixed(2)}ms seed=${stats.seed}\n`,
+        `carriers=${stats.carriers} fallbacks=${stats.carrierFallbacks} ` +
+        `shuffles=${stats.shuffles} chaff=${stats.chaffNodes} ` +
+        `bytes=${stats.inputBytes}->${stats.outputBytes} ` +
+        `${stats.durationMs.toFixed(2)}ms seed=${stats.seed}\n`,
     );
   },
   onRefusal(error, url) {

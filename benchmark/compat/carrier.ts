@@ -265,7 +265,7 @@ export async function checkCarriers(
       if (left.width !== right.width || left.height !== right.height) {
         problems.push(
           `${capture.key}: page size changed from ${left.width}x${left.height} to ` +
-          `${right.width}x${right.height}`,
+            `${right.width}x${right.height}`,
         );
         continue;
       }
@@ -316,7 +316,7 @@ export async function checkCarriers(
   const undrawable = page(
     font,
     `<section><p>Group revenue <heo-protect>reached ¤4.2 this ` +
-    `quarter</heo-protect>.</p></section>`,
+      `quarter</heo-protect>.</p></section>`,
   );
 
   // With nothing to fall back to, the page goes down. Served as text it would

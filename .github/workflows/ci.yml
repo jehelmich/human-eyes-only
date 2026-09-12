@@ -42,7 +42,7 @@ jobs:
   # stays under the every-push budget and this one runs alongside it rather than
   # in front of it (ROADMAP.md, cadence).
   visual:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
@@ -52,7 +52,7 @@ jobs:
           cache: pnpm
 
       - run: pnpm install --frozen-lockfile
-      - run: pnpm --filter @human-eyes-only/benchmark exec playwright install --with-deps chromium
+      - run: pnpm --filter @human-eyes-only/benchmark exec playwright install chromium
 
       # The carrier alignment check needs the generator, which is a cargo
       # artifact and is deliberately not committed.

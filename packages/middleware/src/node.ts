@@ -183,7 +183,7 @@ export function heoMiddleware(options: HeoMiddlewareOptions = {}) {
   if (font === undefined && fontSizePx !== undefined) {
     throw new Error(
       "heoMiddleware: fontSizePx was set without a font. The size describes the face the " +
-      "carriers are drawn from, so one without the other draws nothing.",
+        "carriers are drawn from, so one without the other draws nothing.",
     );
   }
   // Loud and immediate, because it is wrong for every request. A font with no
@@ -192,8 +192,8 @@ export function heoMiddleware(options: HeoMiddlewareOptions = {}) {
   if (font !== undefined && fontSizePx === undefined) {
     throw new Error(
       "heoMiddleware: a font was supplied without fontSizePx. A carrier is drawn at an " +
-      "absolute size and nothing here can infer the computed one, so there is no default " +
-      "that could be right: pass the type size of the protected text in CSS pixels.",
+        "absolute size and nothing here can infer the computed one, so there is no default " +
+        "that could be right: pass the type size of the protected text in CSS pixels.",
     );
   }
 
@@ -206,10 +206,10 @@ export function heoMiddleware(options: HeoMiddlewareOptions = {}) {
     font === undefined
       ? null
       : createCarrierRenderer({
-        font: bytesOf(font),
-        fallbacks,
-        ...(wasm === undefined ? {} : { wasm }),
-      });
+          font: bytesOf(font),
+          fallbacks,
+          ...(wasm === undefined ? {} : { wasm }),
+        });
 
   const carrier = {
     renderer,
@@ -338,7 +338,7 @@ export function heoMiddleware(options: HeoMiddlewareOptions = {}) {
           // which is the operator's channel.
           const body = Buffer.from(
             `HEO refused to serve this response. See the origin log for the reason ` +
-            `(${(reported as Error).name}).\n`,
+              `(${(reported as Error).name}).\n`,
           );
           response.setHeader("content-length", String(body.length));
           return originalEnd(body, callback as never);

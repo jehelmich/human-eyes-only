@@ -238,12 +238,12 @@ export class HeoCspError extends Error {
   constructor(finding: CspFinding) {
     super(
       `HEO refused to transform a page whose Content-Security-Policy blocks the stylesheet ` +
-      `it injects (from the ${finding.source}): ${finding.policy}\n` +
-      `Refused because ${finding.reason}.\n` +
-      "Without that stylesheet the permutation is never inverted and chaff paints in full " +
-      "view, which corrupts the page for readers. Allow HEO's one <style> element — it " +
-      "will add its own nonce to your style directive when onRestrictiveCsp is left at its " +
-      'default of "nonce" — or exclude this route from HEO.',
+        `it injects (from the ${finding.source}): ${finding.policy}\n` +
+        `Refused because ${finding.reason}.\n` +
+        "Without that stylesheet the permutation is never inverted and chaff paints in full " +
+        "view, which corrupts the page for readers. Allow HEO's one <style> element — it " +
+        "will add its own nonce to your style directive when onRestrictiveCsp is left at its " +
+        'default of "nonce" — or exclude this route from HEO.',
     );
     this.name = "HeoCspError";
     this.policy = finding.policy;
