@@ -244,7 +244,7 @@ This is the response body for one load, with the path data and the repeated
 carriers elided:
 
 ```html
-<meta name="heo" content="0.1.0-alpha.1">
+<meta name="heo" content="0.1.0-alpha.2">
 <style>.heo-g{display:inline-flex;flex-wrap:wrap;vertical-align:baseline;white-space:normal}
 .heo-g[hidden]{display:none}.heo-g>span{white-space:pre}
 .lu0{--n:292}.lu1{--n:107;display:inline;vertical-align:-4.3px}.lu2{--n:72;display:none}

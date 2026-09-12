@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.0-alpha.2
+
+Compatibility release. No API or behavior changes; package versions and the
+runtime-reported HEO version were advanced together for npm publication.
+
 ## 0.1.0-alpha.1
 
 First release. Pre-v0.1: the markup and the options will change, and no

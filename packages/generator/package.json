@@ -1,6 +1,6 @@
 {
   "name": "@human-eyes-only/generator",
-  "version": "0.1.0-alpha.1",
+  "version": "0.1.0-alpha.2",
   "description": "Text to randomised SVG carrier generator (Rust/WASM).",
   "scripts": {
     "build": "cargo build --release --target wasm32-unknown-unknown && mkdir -p dist && cp target/wasm32-unknown-unknown/release/heo_generator.wasm dist/ && node scripts/optimise.mjs",
