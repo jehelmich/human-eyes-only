@@ -74,7 +74,7 @@ jobs:
     permissions:
       contents: read
       id-token: write
-    if: startsWith(github.ref, 'refs/tags/v')
+    if: startsWith(github.ref, 'refs/tags/v') && vars.NPM_AUTO_PUBLISH == 'true'
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
