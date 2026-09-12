@@ -9,6 +9,10 @@
     "lint": "cargo clippy --all-targets -- -D warnings"
   },
   "license": "PolyForm-Noncommercial-1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jehelmich/human-eyes-only"
+  },
   "type": "module",
   "exports": {
     "./host": {

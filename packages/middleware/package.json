@@ -3,6 +3,10 @@
   "version": "0.1.0-alpha.3",
   "description": "Generic Node HTTP middleware adapter for HEO.",
   "license": "PolyForm-Noncommercial-1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jehelmich/human-eyes-only"
+  },
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
