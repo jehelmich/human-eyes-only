@@ -12,7 +12,7 @@ The generator is Rust compiled to WASM and builds separately:
 
 ```bash
 rustup target add wasm32-unknown-unknown
-pnpm --filter @heo/generator build
+pnpm --filter @human-eyes-only/generator build
 ```
 
 Node 20.11+ (see `.nvmrc`), pnpm workspaces, Vitest for unit tests, Playwright for
@@ -22,6 +22,36 @@ browser tests, Biome for formatting and linting. Rust and the
 `.githooks/` is untracked on purpose — it is where each machine keeps its own local
 hooks. `pnpm install` runs `scripts/setup-hooks.sh`, which points `core.hooksPath`
 there and seeds a minimal `commit-msg` hook **only if one does not already exist**.
+
+## Branches and releases
+
+`main` is the integration branch. Feature work happens on short-lived branches
+named for the work, for example `feature/carrier-calibration`,
+`fix/csp-nonce`, or `docs/middleware-readme`, and lands through a pull request
+into `main`.
+
+Stable maintenance work happens on `release/*` branches. Create one only when a
+published line needs fixes that should not wait for whatever is currently on
+`main`, for example `release/0.1`. Cherry-pick narrowly into that branch, keep
+the branch green, and tag releases from there. The current prerelease line is
+`release/0.1`.
+
+Release tags are `v<package-version>`, for example `v0.1.0-alpha.3`. A release
+tag must point at a commit reachable from `main` or from a `release/*` branch;
+the publish job checks this before it can publish. Do not tag feature branches.
+If a feature branch needs a shareable build, publish a GitHub artifact or pack a
+local tarball instead of using an npm version.
+
+Automatic npm publishing is opt-in. The release job is skipped unless the
+repository variable `NPM_AUTO_PUBLISH` is set to `true`; when enabled it still
+waits for the normal verification and visual jobs. Until that variable is set,
+tag pushes create CI evidence but do not publish to npm.
+
+For prereleases, keep all public packages on the same version and publish in
+dependency order: `@human-eyes-only/core`, `@human-eyes-only/generator`, then
+`@human-eyes-only/middleware`. The middleware depends on the other two by semver
+after publishing, so a partial publish leaves installs broken until the missing
+package version exists.
 
 ## Invariants
 
@@ -77,9 +107,9 @@ indexing or quotation is left unmarked instead.
 
 ## Architectural boundaries
 
-**`@heo/core` knows nothing about host frameworks.** No Express, Fastify, Next,
-Flask or Django anywhere in `packages/core`. Every integration reduces to
-`transformHtml(html, config) -> { html, stats }`. Adapters that hold
+**`@human-eyes-only/core` knows nothing about host frameworks.** No Express,
+Fastify, Next, Flask or Django anywhere in `packages/core`. Every integration
+reduces to `transformHtml(html, config) -> { html, stats }`. Adapters that hold
 transformation logic are the main way this design rots — keep them thin.
 
 **The middleware buffers and delegates.** It inspects a content type, buffers the
