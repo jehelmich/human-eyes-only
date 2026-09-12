@@ -120,6 +120,22 @@ jobs:
           pnpm --filter @human-eyes-only/core pack --pack-destination .release
           pnpm --filter @human-eyes-only/generator pack --pack-destination .release
           pnpm --filter @human-eyes-only/middleware pack --pack-destination .release
-      - run: npm publish .release/human-eyes-only-core-${GITHUB_REF_NAME#v}.tgz --access public --tag alpha
-      - run: npm publish .release/human-eyes-only-generator-${GITHUB_REF_NAME#v}.tgz --access public --tag alpha
-      - run: npm publish .release/human-eyes-only-middleware-${GITHUB_REF_NAME#v}.tgz --access public --tag alpha
+      - name: Publish release tarballs
+        run: |
+          version="${GITHUB_REF_NAME#v}"
+
+          publish_if_missing() {
+            package="$1"
+            tarball="$2"
+
+            if npm view "${package}@${version}" version >/dev/null 2>&1; then
+              echo "${package}@${version} already exists; skipping"
+              return
+            fi
+
+            npm publish "${tarball}" --access public --tag alpha
+          }
+
+          publish_if_missing "@human-eyes-only/core" ".release/human-eyes-only-core-${version}.tgz"
+          publish_if_missing "@human-eyes-only/generator" ".release/human-eyes-only-generator-${version}.tgz"
+          publish_if_missing "@human-eyes-only/middleware" ".release/human-eyes-only-middleware-${version}.tgz"
