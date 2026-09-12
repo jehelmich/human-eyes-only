@@ -1,6 +1,6 @@
 {
   "name": "@human-eyes-only/middleware",
-  "version": "0.1.0-alpha.2",
+  "version": "0.1.0-alpha.3",
   "description": "Generic Node HTTP middleware adapter for HEO.",
   "license": "PolyForm-Noncommercial-1.0.0",
   "type": "module",

@@ -87,6 +87,7 @@ jobs:
           cache: pnpm
           registry-url: https://registry.npmjs.org
 
+      - run: npm install -g npm@11.19.1
       - run: pnpm install --frozen-lockfile
       - name: Check tag matches package version
         run: |
@@ -113,21 +114,12 @@ jobs:
           fi
       - run: pnpm build
       - run: rustup target add wasm32-unknown-unknown
-      - run: pnpm --filter @human-eyes-only/core publish --provenance --access public --tag latest --no-git-checks
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - run: pnpm --filter @human-eyes-only/generator publish --provenance --access public --tag latest --no-git-checks
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - run: pnpm --filter @human-eyes-only/middleware publish --provenance --access public --tag latest --no-git-checks
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - run: npm dist-tag add @human-eyes-only/core@${GITHUB_REF_NAME#v} alpha
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - run: npm dist-tag add @human-eyes-only/generator@${GITHUB_REF_NAME#v} alpha
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - run: npm dist-tag add @human-eyes-only/middleware@${GITHUB_REF_NAME#v} alpha
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Pack release tarballs
+        run: |
+          mkdir -p .release
+          pnpm --filter @human-eyes-only/core pack --pack-destination .release
+          pnpm --filter @human-eyes-only/generator pack --pack-destination .release
+          pnpm --filter @human-eyes-only/middleware pack --pack-destination .release
+      - run: npm publish .release/human-eyes-only-core-${GITHUB_REF_NAME#v}.tgz --access public --tag alpha
+      - run: npm publish .release/human-eyes-only-generator-${GITHUB_REF_NAME#v}.tgz --access public --tag alpha
+      - run: npm publish .release/human-eyes-only-middleware-${GITHUB_REF_NAME#v}.tgz --access public --tag alpha

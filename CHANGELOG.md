@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.0-alpha.3
+
+Release automation test. Package contents are unchanged from alpha.2 except for
+the runtime-reported HEO version; publishing now uses npm trusted publishers
+instead of a long-lived npm token.
+
 ## 0.1.0-alpha.2
 
 Compatibility release. No API or behavior changes; package versions and the

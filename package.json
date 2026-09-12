@@ -1,6 +1,6 @@
 {
   "name": "human-eyes-only",
-  "version": "0.1.0-alpha.2",
+  "version": "0.1.0-alpha.3",
   "private": true,
   "description": "HEO \u2014 adversarial rendering middleware for human-first web publishing.",
   "license": "PolyForm-Noncommercial-1.0.0",

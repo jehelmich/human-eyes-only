@@ -55,7 +55,7 @@ import type { CspResult, TransformResult, TransformStats } from "./types.js";
  * about itself. Hard-coded rather than read from `package.json`, which core
  * cannot do on an edge runtime; it is bumped with the package version.
  */
-export const VERSION = "0.1.0-alpha.2";
+export const VERSION = "0.1.0-alpha.3";
 
 const ENCODER = new TextEncoder();
 
