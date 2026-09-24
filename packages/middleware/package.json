@@ -32,7 +32,7 @@
     "@human-eyes-only/generator": "workspace:^"
   },
   "devDependencies": {
-    "@types/node": "22.20.2"
+    "@types/node": "26.6.2"
   },
   "publishConfig": {
     "access": "public",
