@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@human-eyes-only/core": "workspace:*",
-    "parse5": "8.0.1",
+    "parse5": "8.1.0",
     "@human-eyes-only/generator": "workspace:*"
   },
   "devDependencies": {
